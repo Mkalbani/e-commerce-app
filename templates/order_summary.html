@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Summary</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add your custom CSS styles here -->
+    <link rel="stylesheet" href="custom.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Order Summary</h1>
+        <div class="row">
+            <div class="col-md-8">
+                <!-- Display order details here -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Example order item -->
+                        <tr>
+                            <td>Product 1</td>
+                            <td>2</td>
+                            <td>$49.99</td>
+                            <td>$99.98</td>
+                        </tr>
+                        <!-- Add more order items as needed -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <!-- Display order summary and total here -->
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Order Summary</h5>
+                        <p>Total Items: 2</p>
+                        <p>Subtotal: $99.98</p>
+                        <p>Shipping: $10.00</p>
+                        <p><strong>Total: $109.98</strong></p>
+                        <!-- Add checkout or payment button here -->
+                        <a href="#" class="btn btn-primary">Proceed to Checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and jQuery (required for Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Add your custom JavaScript scripts here -->
+    <script src="custom.js"></script>
+</body>
+</html>
