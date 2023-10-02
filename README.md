@@ -7,10 +7,6 @@
 - [Description](#description)
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Description
 
@@ -27,7 +23,7 @@ This is an e-commerce web application built using Flask, SQLAlchemy, and other t
 
 ## Installation
 
-1. Clone the repository:
+ Clone the repository:
 
    ```bash
    git clone https://github.com/mkothm/e-commerce-app.git
@@ -37,12 +33,11 @@ This is an e-commerce web application built using Flask, SQLAlchemy, and other t
    pip install -r requirements.txt
 
    python
->>> from your_app import db
->>> db.create_all()
->>> exit()
+   from your_app import db
+   db.create_all()
+   exit()
   ```
 
-
-  flask run
+      flask run
 
   ```
