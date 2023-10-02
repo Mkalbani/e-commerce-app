@@ -9,6 +9,8 @@ from flask_mail import Mail, Message
 import os
 from dotenv import load_dotenv
 
+
+
 app = Flask(__name__)
 app.app_context().push()
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///inventory.db'
@@ -21,6 +23,7 @@ admin_credentials = {
     "admin1": "password1",
     "user_admin": f"{PWD}",
 }
+
 
 # Generate a random secret key
 secret_key = os.urandom(24)
@@ -40,23 +43,26 @@ class AdminUser(db.Model, UserMixin):
     password = db.Column(db.String(100), nullable=False)
     is_admin = db.Column(db.Boolean, default=False)  # Flag to indicate admin status
 
-# Helper function to create an admin user if it doesn't exist
-# def create_admin_user():
-#     existing_admin = AdminUser.query.filter_by(username='admin_user').first()
-#     if not existing_admin:
-#         admin_password = PWD
-#         hashed_password = bcrypt.generate_password_hash(admin_password).decode('utf-8')
-#         admin_user = AdminUser(username='admin_user', password=hashed_password, is_admin=True, email='admin@example.com')
-#         db.session.add(admin_user)
-#         db.session.commit()
-#         print("Admin user created successfully.")
-#     else:
-#         print("Admin user already exists.")
+    def __repr__(self):
+        return f'<AdminUser {self.username}>'
 
-# # Call the create_admin_user function to create the admin user (comment this line after running it once)
-# create_admin_user()
 
-# Initialize Flask-Login
+#Helper function to create an admin user if it doesn't exist
+def create_admin_user():
+    existing_admin = AdminUser.query.filter_by(username='admin1').first()
+    if not existing_admin:
+        admin_user = AdminUser(username='admin1', email='mkkkk21@gmail.com', password='password1', is_admin=True)
+        db.session.add(admin_user)
+        db.session.commit()
+        print("Admin user created successfully.")
+    else:
+        print("Admin user already exists.")
+
+# Call the create_admin_user function to create the admin user (comment this line after running it once)
+#create_admin_user()
+
+
+#Initialize Flask-Login
 login_manager = LoginManager()
 login_manager.init_app(app)
 
@@ -235,9 +241,12 @@ def admin_login():
         login_user(admin_user)
         return redirect(url_for('admin_dashboard'))
     else:
-        flash('Invalid admin credentials.', 'danger')
-
-    return render_template('admin-login.html', form=form)
+        if admin_user is None:
+            flash('Invalid admin credentials.', 'danger')
+            return render_template('admin-login.html', form=form)
+        else:
+            flash('Invalid admin credentials.', 'danger')
+            return render_template('admin-login.html', form=form)
 
 
 
