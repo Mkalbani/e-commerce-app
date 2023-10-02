@@ -8,16 +8,29 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Add your custom CSS styles here -->
     <link rel="stylesheet" href="custom.css">
-</head>
+    <!-- Add futuristic CSS styles -->
+    <style>
+        /* Style for product cards */
+        .futuristic-card {
+            background-color: #f8f8f8; /* Slight grey background */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+            transition: transform 0.2s; /* Smooth transition for hover effect */
+        }
+
+        /* Hover effect for product cards */
+        .futuristic-card:hover {
+            transform: scale(1.05); /* Enlarge on hover */
+        }
+    </style></head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="{{ url_for('index') }}">E-commerce Store</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <!-- Navigation links -->
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
@@ -43,24 +56,24 @@
         <div class="row">
             <!-- Product listings -->
             <div class="col-md-4">
-                <div class="card mb-4">
+                <div class="card mb-4 futuristic-card">
                     <img src="/static/images/product_image_1.png" class="card-img-top" alt="Product 1">
                     <div class="card-body">
                         <h5 class="card-title">Product 1</h5>
                         <p class="card-text">Stay connected and active with our cutting-edge smartwatch. Track your fitness goals, receive notifications, and make a style statement all from your wrist. The perfect companion for a tech-savvy lifestyle.</p>
                         <p class="card-text">$99.99</p>
-                        <button class="btn btn-primary" onclick="addToCart(1)">Add to Cart</button>
+                        <button class="btn btn-primary futuristic-btn" onclick="addToCart(1)">Add to Cart</button>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card mb-4">
+                <div class="card mb-4 futuristic-card">
                     <img src="/static/images/product_image_2.jpg" class="card-img-top" alt="Product 2">
                     <div class="card-body">
                         <h5 class="card-title">Product 2</h5>
                         <p class="card-text">Never run out of power on the go! Our portable power bank ensures your devices stay charged wherever you are. Compact, reliable, and ready to keep you connected when you need it most.</p>
                         <p class="card-text">$49.99</p>
-                        <button class="btn btn-primary" onclick="addToCart(2)">Add to Cart</button>
+                        <button class="btn btn-primary futuristic-btn" onclick="addToCart(2)">Add to Cart</button>
                     </div>
                 </div>
             </div>
